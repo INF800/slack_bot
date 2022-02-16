@@ -1,0 +1,9 @@
+README.md
+setup.py
+src/slack_bot/__init__.py
+src/slack_bot/send.py
+src/slack_bot.egg-info/PKG-INFO
+src/slack_bot.egg-info/SOURCES.txt
+src/slack_bot.egg-info/dependency_links.txt
+src/slack_bot.egg-info/requires.txt
+src/slack_bot.egg-info/top_level.txt

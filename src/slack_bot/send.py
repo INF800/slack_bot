@@ -12,8 +12,7 @@ INCOMING_WEBHOOKS_ACCESS_URL=os.getenv("INCOMING_WEBHOOKS_ACCESS_URL")
 
 def send_message(post_data, api_url, headers={'Content-Type': 'application/json'}):
     response = requests.post(api_url, headers=headers, json=post_data) 
-    print(response.status_code, response.content)
-
+    return response
 
 def generate_post_data(markdown_texts):
     # https://api.slack.com/messaging/composing/layouts#attachments
@@ -31,6 +30,12 @@ def generate_post_data(markdown_texts):
         post_data['blocks'].append(content)
     print(post_data)
     return post_data
+
+
+def send_markdown(text_or_list_of_texts, api_url=INCOMING_WEBHOOKS_ACCESS_URL):
+    post_data = generate_post_data(text_or_list_of_texts)
+    return send_message(post_data, api_url)
+    
 
 def main():
     post_data = generate_post_data("```hellow!!```")
